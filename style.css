@@ -1,3 +1,51 @@
+:root{
+    --main-blue:#3586DE;
+    --main-white: #FFFFFF;
+}
+
+*{
+    margin: 0%;
+}
+
 h1{
-    background-color: brown;
+   background-color:#D6B163;
+}
+
+.navlist{
+    display: flex;
+    list-style-type: none;
+    margin: 2rem;
+}
+
+#navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #DEC197;
+    
+}
+
+.navlist a{
+    text-decoration: none;
+    display:block;  
+    color: var(--main-white);
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.navlist a:hover{
+    background: var(--main-blue);
+    
+}
+
+#welcome-section{
+    height: 100vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
