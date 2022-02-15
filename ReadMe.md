@@ -2,4 +2,4 @@
 
 ## DGM1600 projects
 
-:smile
+:smile:
