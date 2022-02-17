@@ -1,5 +1,5 @@
 :root{
-    --main-blue:#3586DE;
+    --main-brown:#614720;
     --main-white: #FFFFFF;
 }
 
@@ -13,8 +13,20 @@ html{
     scroll-behavior: smooth;
 }
 
+body{
+    background-color: rgb(245, 234, 209);
+}
 h1{
    background-color:#D6B163;
+   font-size: 4rem;
+   margin: 2rem;
+   width: 75vw;
+   text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
 
 .navlist{
@@ -39,29 +51,71 @@ h1{
     display:block;  
     color: var(--main-white);
     padding: 1rem;
-    font-size: 1rem;
+    font-size: 2rem;
 }
 
 .navlist a:hover{
-    background: var(--main-blue);
+    background: var(--main-brown);
     
 }
 
 #welcome-section{
     height: 100vh;
-    background-color: bisque;
+    background-color: rgb(226, 205, 179);
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
-h1{
-    font-size: 5rem;
+#projects{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-a{
-    text-decoration: none;
+.project-tiles{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-tiles a{
+    margin: 2rem;
+}
+
+.project-tile img{
+    width: 20rem;
+}
+
+#contacts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-links a{
+    margin: 2rem;
+    font-size: large;
+}
+
+.contact-links a:hover{
+    background-color: #614720;
+}
+
+.contact-details a{
+    text-shadow: 2px 2px 1px #1f1f1f2c;
+    transition: transform 0.4s ease-out;
+}
+
+.contact-links a:hover{
+    transform: translateY(8px);
+}
+
+footer{
+    background-color: #D6B163;
+    font-size: medium;
+    text-align: center;
+    margin: 1rem 2rem;
 }
 
 /* 980px / 16px = 61.25em */
@@ -77,3 +131,4 @@ a{
       font-size: 55%;
     }
   }
+
