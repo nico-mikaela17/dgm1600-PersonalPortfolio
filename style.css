@@ -87,6 +87,12 @@ a{
     width: 20rem;
 }
 
+.project-tile figcaption{
+    text-align: center;
+    background-color: var(--main-brown);
+    color: var(--main-white);
+}
+
 #contacts{
     display: flex;
     flex-direction: column;
@@ -96,15 +102,12 @@ a{
 .contact-links a{
     margin: 2rem;
     font-size: large;
-}
-
-.contact-links a:hover{
-    background-color: #614720;
+    display: block;
 }
 
 .contact-details a{
     text-shadow: 2px 2px 1px #1f1f1f2c;
-    transition: transform 0.4s ease-out;
+    transition: transform 0.3s ease-out;
 }
 
 .contact-links a:hover{
