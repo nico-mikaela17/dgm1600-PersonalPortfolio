@@ -25,6 +25,15 @@ h1{
    text-align: center;
 }
 
+h2{
+    background-color:#D6B163;
+    font-family: Special Elite;
+    font-size: 2rem;
+    margin: 2rem;
+    width: 75vw;
+    text-align: center;
+ }
+
 a{
     text-decoration: none;
     color: black;
