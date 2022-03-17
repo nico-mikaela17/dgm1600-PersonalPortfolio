@@ -1,0 +1,11 @@
+*{
+    background-color:aliceblue;
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  figure img{
+      height: 20rem;
+  }
