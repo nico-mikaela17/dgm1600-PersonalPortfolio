@@ -66,4 +66,3 @@ function populateDOM(characters) {
 }
 
 populateDOM(people)
-  

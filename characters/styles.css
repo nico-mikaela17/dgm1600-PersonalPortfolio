@@ -1,16 +1,16 @@
 main {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  figure img {
-    height: 20rem;
-  }
-  
-  
-  button {
-    width: 10rem;
-    height: 3rem;
-    margin: 1rem;
-    background-color: pink;
-  }
+  display: flex;
+  flex-wrap: wrap;
+}
+
+figure img {
+  height: 20rem;
+}
+
+
+button {
+  width: 10rem;
+  height: 3rem;
+  margin: 1rem;
+  background-color: pink;
+}
