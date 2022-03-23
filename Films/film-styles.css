@@ -7,3 +7,19 @@
 h1 {
   color: green;
 }
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+figure {
+  margin: 1rem;
+}
+
+
+figcaption {
+  font-size: xx-large;
+  text-align: center;
+}

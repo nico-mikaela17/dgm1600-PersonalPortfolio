@@ -1,4 +1,5 @@
 import { people } from '../data/people.js'
+import { getLastNumber, removeChildren } from '../utils/index.js'
 
 const header = document.querySelector('header')
 const main = document.querySelector('main')
@@ -6,19 +7,51 @@ const main = document.querySelector('main')
 const allCharsButton = document.createElement('button')
 allCharsButton.textContent = 'All Characters'
 allCharsButton.addEventListener('click', function () {
-  console.log('Thanks for clicking')
   populateDOM(people)
 })
-header.appendChild(allCharsButton)
 
-const maleCharacters = people.filter(person => person.gender === 'male')
+const maleCharacters = people.filter(person => person.gender === 'male')  // elegant filter!
+
+/* const otherCharacters = people.filter(person => {
+  if (
+    person.gender === 'n/a' ||
+    person.gender === 'none' ||
+    person.gender === 'hermaphrodite'
+  ) {
+    return person
+  }
+}) */
+
+const otherCharacters = people.filter((person) => person.gender !== "male" && person.gender !== "female")
+
+
+
+/* const maleCharacters = people.filter((person) => {
+  console.log(person.name)
+  return person.gender === 'male'
+}) */
+
+// TODO: filter for female characters
+// TODO: filter for all other genders (ie. n/a, none, jabba)
 
 const maleCharsButton = document.createElement('button')
 maleCharsButton.textContent = 'Male Characters'
-maleCharsButton.addEventListener('click', () => console.log("Thanks for clicking on Male Character button"))
+maleCharsButton.addEventListener('click', () => populateDOM(maleCharacters))
+
+// TODO: add female characters button and have it populate the DOM
+// TODO: add other characters button
+
+const otherCharsButton = document.createElement('button')
+otherCharsButton.textContent = 'Other Characters'
+otherCharsButton.addEventListener('click', () => populateDOM(otherCharacters))
+
+header.appendChild(allCharsButton)
+header.appendChild(maleCharsButton)
+header.appendChild(otherCharsButton)
 
 function populateDOM(characters) {
-  people.forEach((person) => {
+  removeChildren(main)
+  characters.forEach((person) => {
     const personFig = document.createElement('figure')
     const personImg = document.createElement('img')
     let charNum = getLastNumber(person.url)
@@ -32,12 +65,5 @@ function populateDOM(characters) {
   })
 }
 
-function getLastNumber(url) {
-  let end = url.lastIndexOf('/')
-  let start = end -2
-  if (url.charAt(start) === '/') {
-    start++
-  }
-  return url.slice(start,end)
-}
+populateDOM(people)
   
