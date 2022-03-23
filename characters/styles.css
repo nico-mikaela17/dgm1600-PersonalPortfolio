@@ -5,6 +5,8 @@
 main {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+
 }
 
 button {
@@ -15,7 +17,6 @@ button {
   font-family: Josefin Sans;
   font-size: medium;
   border-radius: 5px;
-  justify-content: space-between;
 }
 
 figure img {
