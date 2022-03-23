@@ -1,16 +1,32 @@
+*{
+  background-color: black;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
 }
 
-figure img {
-  height: 20rem;
-}
-
-
 button {
   width: 10rem;
   height: 3rem;
   margin: 1rem;
-  background-color: pink;
+  background-color: yellow;
+  font-family: Josefin Sans;
+  font-size: medium;
+  border-radius: 5px;
+  justify-content: space-between;
 }
+
+figure img {
+  height: 20rem;
+  border-radius: 100%;
+}
+
+figcaption{
+  color: white;
+  text-align: center;
+  font-family: Josefin Sans;
+  font-size: x-large;
+}
+
