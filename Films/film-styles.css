@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: cadetblue;
+}
+
+h1 {
+  color:white;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+figure {
+  margin: 1rem;
+}
+
+
+figcaption {
+  font-size: x-large;
+  text-align: center;
+  font-family: roboto mono;
+  color: aliceblue;
+}
