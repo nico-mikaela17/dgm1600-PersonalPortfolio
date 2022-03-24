@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: dimgray;
+}
+
+.mainContainer{
+    display: flex;
+}
+
+.nav{
+    min-width: 20rem;
+}
+
+.box{
+    background-color: darkslategray;
+}
+
+.box p{
+    font-size: xx-large;
+    text-align: center;
+}
+
+.navList{
+    margin: 1rem;
+    list-style-type: none;
+    font-size: x-large;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
