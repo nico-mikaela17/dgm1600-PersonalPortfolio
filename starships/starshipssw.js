@@ -1,46 +1,49 @@
-import {starships} from "../data/starships.js"
-import {getLastNumber, removeChildren} from "../utils/index.js"
+import { starships } from "../data/starships.js"
+import { removeChildren, getLastNumber } from "../utils/index.js"
 
 const nav = document.querySelector('.nav')
 const navList = document.querySelector('.navList')
-const shipViwer = document.querySelector('.shipViewer')
+const shipViewer = document.querySelector('.shipViewer')
 
 const modal = document.querySelector('.modal')
-const closeModal = document.querySelector('.modal-close')
-const shipMessage = document.querySelector('box')
+const closeButton = document.querySelector('.modal-close')
+const shipMessage = document.querySelector('.box p')
+// TODO: add a click event listener for the modal-background div as well
+modal.addEventListener('click', () => {
+    console.log("Thanks for remembering to close me!")
 
-closeModal.addEventListener('click', () => modal.classList.toggle('is-active'))
-
+})
+closeButton.addEventListener('click', () => modal.classList.toggle('is-active'))
 
 function populateNav() {
-    starships.forEach((starship) => {
-        const listItem = document.createElement('li')
+  starships.forEach((starship) => {
+    const listItem = document.createElement('li')
+    
+    const anchor = document.createElement('a')
+    anchor.href = '#'
+    anchor.textContent = starship.name
+    anchor.addEventListener('click', () => populateShipView(starship))
 
-        const anchor = document.createElement('a')
-        anchor.href = '#'
-        anchor.textContent = starship.name
-        anchor.addEventListener('click', () => populateShipView(starship))
-
-
-        listItem.textContent = starship.name
-        navList.appendChild(listItem)
-    })
+    listItem.appendChild(anchor)
+    navList.appendChild(listItem)
+  })
 }
 
 populateNav()
-function populateShipView(){
-    removeChildren(shipViwer)
-console.log('Thanks for clicking on..', starships.name)
 
-const shipImage = document.createElement('img')
-let shipNum = getLastNumber(shipData.url)
-shipImage.src =   figImage.src = `https://starwars-visualguide.com/assets/img/films/${starships}.jpg`
-$(starship)
-shipImage.addEventListener('error', () =>{
-    console.log('Image Error!!')
+function populateShipView(shipData) {
+  removeChildren(shipViewer)
+
+  const shipImage = document.createElement('img')
+  let shipNum = getLastNumber(shipData.url)
+  shipImage.src = `https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg`
+  shipImage.addEventListener('error', () => {
+    console.log("Image error!!!!!!")
     shipImage.hidden = true
-    shipMessage.textContent = `The ship know as' $(starships.name), 'is in the shop for repairs`
+    shipMessage.textContent = `The ship known as ${shipData.name} is currently in the shop for repairs.`
     modal.classList.toggle('is-active')
-})
-shipViwer.appendChild(shipImage)
+  })
+
+  shipViewer.appendChild(shipImage)
+
 }

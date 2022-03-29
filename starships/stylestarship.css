@@ -16,13 +16,19 @@ body{
     min-width: 20rem;
 }
 
+.shipViewer shipImage{
+    padding: 2rem;
+    float: right;
+}
+
 .box{
-    background-color: darkslategray;
+    background-color: rgb(226, 164, 29);
 }
 
 .box p{
     font-size: xx-large;
     text-align: center;
+    color: black;
 }
 
 .navList{
