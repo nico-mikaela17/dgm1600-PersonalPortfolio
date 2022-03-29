@@ -4,8 +4,13 @@
     box-sizing: border-box;
 }
 
+header{
+    font-size: xxx-large;
+    color: rgb(124, 170, 255);
+}
+
 body{
-    background-color: dimgray;
+    background-color: rgb(32, 40, 49);
 }
 
 .mainContainer{
@@ -25,6 +30,11 @@ body{
     background-color: rgb(226, 164, 29);
 }
 
+.modal-background{
+    background-color: rgb(46, 13, 30);
+    opacity: 0.9;
+}
+
 .box p{
     font-size: xx-large;
     text-align: center;
@@ -40,4 +50,13 @@ body{
 a {
     text-decoration: none;
     color: white;
+}
+
+a:hover{
+    color: chocolate;
+}
+
+footer{
+    font-size: medium;
+    color: rgb(124, 170, 255);
 }
