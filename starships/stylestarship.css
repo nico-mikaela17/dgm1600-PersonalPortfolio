@@ -21,8 +21,14 @@ body{
     min-width: 20rem;
 }
 
-.shipViewer shipImage{
-    
+.shipViewer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.shipViewer img{
+    padding: 10rem;
 }
 
 .box{
@@ -30,8 +36,8 @@ body{
 }
 
 .modal-background{
-    background-color: rgb(46, 13, 30);
-    opacity: 0.9;
+    background-color: rgb(124, 170, 255);
+    opacity: 0.4;
 }
 
 .box p{

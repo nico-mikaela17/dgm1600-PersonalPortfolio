@@ -1,4 +1,7 @@
 import { senators } from "../data/senators.js"
+import {representatives} from "../data/representatives.js"
+
+const allMembersOfCongress = [...senators, ...representatives]
 
 const senatorsDiv = document.querySelector('.senatorsdiv')
 const seniorityHeader = document.querySelector('.seniority')
@@ -43,9 +46,9 @@ populateSenatorDiv(simplifiedSenators())
 const mostSeniorMember = simplifiedSenators().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator)
 const moreMissedVotes = simplifiedSenators().reduce((acc, senator) => acc.missedVotesPct > senator.missedVotesPct ? acc : senator)
 
-const moreMissedVotesList = simplifiedSenators().filter(senator => senator.missedVotesPct === moreMissedVotes)
+const moreMissedVotesList = simplifiedSenators().filter(senator => senator.missedVotesPct === moreMissedVotes).map(senator => senator.name).join(' and ')
 
-seniorityHeader.textContent = `The most senior Senator is ${mostSeniorMember.name} and the person that missed more votes is ${moreMissedVotes.name}`
+seniorityHeader.textContent = `The most senior Senator is ${mostSeniorMember.name} and the person that missed more votes is ${moreMissedVotes.name} and the people that missed more votes are ${moreMissedVotesList}`
 
 simplifiedSenators().forEach(senator => {
     if(senator.loyaltyPct === 100) {
