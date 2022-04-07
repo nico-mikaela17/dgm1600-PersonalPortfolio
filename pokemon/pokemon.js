@@ -11,14 +11,14 @@ const getAPIData = async (url) => {
   const pokeGrid = document.querySelector('.pokegrid')
 
 async function loadPokemon(offset, limit) {
-   const data = await getAPIData('https://pokeapi.co/api/v2/pokemon/snorlax')
-
+   const data = await getAPIData('https://pokeapi.co/api/v2/pokemon/')
+    populatePokeGrid(data)
 }
 
 function populatePokeGrid(pokemonArray) {
     console.log(pokemonArray)
-    for (const pokemon of pokemonArray.results)(
-        populatePokeCard(pokemon)
+    for (const singlePokemon of pokemonArray.results)(
+        populatePokeCard(singlePokemon)
         )
 }
 //loop through array and populate through individual pokemon cards
@@ -51,3 +51,5 @@ function populateCardFront(pokemon) {
 
 function populateCardBack(pokemon) {
 }
+
+loadPokemon(0, 0)
