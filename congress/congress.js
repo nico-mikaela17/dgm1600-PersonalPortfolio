@@ -2,10 +2,28 @@ import { senators } from "../data/senators.js"
 import {representatives} from "../data/representatives.js"
 
 const allMembersOfCongress = [...senators, ...representatives]
+const header = document.querySelector('header')
 
 const senatorsDiv = document.querySelector('.senatorsdiv')
+const representativesDiv = document.querySelector('.representativesdiv')
 const seniorityHeader = document.querySelector('.seniority')
 const loyaltyList = document.querySelector('.loyaltylist')
+
+const allCharsButton = document.createElement('button')
+allCharsButton.textContent = 'All People'
+allCharsButton.addEventListener('click', function () {
+  populateDOM(senators)
+})
+
+const republicans = senators.filter(senator => senator.party === 'Republicans')  // elegant filter!
+const democrats = senators.filter(senator => senator.party === 'Democrats')  // elegant filter!
+
+
+
+
+
+
+
 
 function simplifiedSenators() {
     return senators.map(senator => {
