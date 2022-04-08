@@ -15,8 +15,8 @@ allCharsButton.addEventListener('click', function () {
   populateDOM(senators)
 })
 
-const republicans = senators.filter(senator => senator.party === 'Republicans')  // elegant filter!
-const democrats = senators.filter(senator => senator.party === 'Democrats')  // elegant filter!
+//const republicans = senators.filter(senator => senator.party === 'Republicans')  // elegant filter!
+//const democrats = senators.filter(senator => senator.party === 'Democrats')  // elegant filter!
 
 
 
