@@ -89,6 +89,7 @@ a{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    padding: 6rem;
 }
 
 .project-tiles a{
