@@ -31,7 +31,7 @@ function populatePokeCard(pokemon) {
     pokeCard.className = 'card'
     pokeCard.addEventListener('click', () => pokeCard.classList.toggle('is-flipped'))
     //populate the front of the card
-    pokeCard.appenChild(populateCardFront(pokemon))
+    pokeCard.appendChild(populateCardFront(pokemon))
     pokeScene.appendChild(pokeCard)
     pokeGrid.appendChild(pokeScene)
 }
