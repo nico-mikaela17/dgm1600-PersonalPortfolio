@@ -28,7 +28,7 @@
     transform: rotateY(180deg);
 }
 
-.card__face {
+.cardFace {
     position: absolute;
     width: 100%;
     height: 100%;
