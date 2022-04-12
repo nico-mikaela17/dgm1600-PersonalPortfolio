@@ -10,17 +10,14 @@ const getAPIData = async (url) => {
 
   const pokeGrid = document.querySelector('.pokegrid')
 
-async function loadPokemon(offset, limit) {
-   const data = await getAPIData('https://pokeapi.co/api/v2/pokemon/')
-    populatePokeGrid(data)
+async function loadPokemon(offset = 0, limit = 25) {
+   const data = await getAPIData(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
+   for (const nameAndUrl of data.results){
+     const singlePokemon = await getAPIData(nameAndUrl.url)
+    populatePokeCard(singlePokemon)
+   }
 }
 
-function populatePokeGrid(pokemonArray) {
-    console.log(pokemonArray)
-    for (const singlePokemon of pokemonArray.results)(
-        populatePokeCard(singlePokemon)
-        )
-}
 //loop through array and populate through individual pokemon cards
 
 
@@ -32,13 +29,14 @@ function populatePokeCard(pokemon) {
     pokeCard.addEventListener('click', () => pokeCard.classList.toggle('is-flipped'))
     //populate the front of the card
     pokeCard.appendChild(populateCardFront(pokemon))
+    pokeCard.appendChild(populateCardBack(pokemon))
     pokeScene.appendChild(pokeCard)
     pokeGrid.appendChild(pokeScene)
 }
 
 function populateCardFront(pokemon) {
     const pokeFront = document.createElement('figure')
-    pokeFront.className = 'cardFace'
+    pokeFront.className = 'cardFace front'
     const pokeImg = document.createElement('img')
     pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
     const pokeCaption = document.createElement('figcaption')
@@ -50,6 +48,22 @@ function populateCardFront(pokemon) {
 }
 
 function populateCardBack(pokemon) {
+  const pokeBack = document.createElement('div')
+  pokeBack.className = 'cardFace back'
+  const label = document.createElement('h4')
+  label.textContent = pokemon.name + ' Abilities'
+  pokeBack.appendChild(label)
+
+  const abilityList = document.createElement('ul')
+  pokemon.abilities.forEach((abilityItem) => {
+    const listItem = document.createElement('li')
+    listItem.textContent = abilityItem.ability.name
+    abilityList.appendChild(listItem)
+  })
+  pokeBack.appendChild(abilityList)
+
+
+  return pokeBack
 }
 
-loadPokemon(0, 0)
+loadPokemon(129, 50)
