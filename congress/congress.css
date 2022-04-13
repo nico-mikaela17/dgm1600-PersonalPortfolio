@@ -7,6 +7,7 @@
 .senatorsdiv{
     display: flex;
     flex-wrap: wrap;
+    margin: 3rem;
 }
 
 h1{
@@ -16,5 +17,16 @@ h1{
 
 figure{
     width: 200px;
-    
+}
+
+figcaption{
+    text-align: center;
+}
+
+li{
+    list-style-image: url("../images/vote-svgrepo-com.svg") 
+}
+
+img{
+    border-image: linear-gradient(#f6b73c, #4d9f0c) 30;
 }

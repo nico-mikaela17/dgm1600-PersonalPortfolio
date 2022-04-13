@@ -1,8 +1,12 @@
 import { senators } from "../data/senators.js"
 import {representatives} from "../data/representatives.js"
+import { getLastNumber, removeChildren } from '../utils/index.js'
+
 
 const allMembersOfCongress = [...senators, ...representatives]
 const header = document.querySelector('header')
+const main = document.querySelector('main')
+const buttons = document.querySelector('.buttons')
 
 const senatorsDiv = document.querySelector('.senatorsdiv')
 const representativesDiv = document.querySelector('.representativesdiv')
@@ -11,9 +15,21 @@ const loyaltyList = document.querySelector('.loyaltylist')
 
 const allCharsButton = document.createElement('button')
 allCharsButton.textContent = 'All People'
+buttons.appendChild(allCharsButton)
 allCharsButton.addEventListener('click', function () {
   populateDOM(senators)
 })
+
+const maleRep = senators.filter(senator => senator.gender === 'M')  // elegant filter!
+
+const femaleRep = document.createElement('button')
+//femaleRep = senators.filter(senator => senator.gender === "F")
+femaleRep.textContent = 'Female Members'
+femaleRep.addEventListener('click', () => populateDOM(femaleRep))
+buttons.appendChild(femaleRep)
+
+//const femaleRep = senators.filter(senator => senator.gender === 'F')  // elegant filter!
+
 
 //const republicans = senators.filter(senator => senator.party === 'Republicans')  // elegant filter!
 //const democrats = senators.filter(senator => senator.party === 'Democrats')  // elegant filter!
@@ -58,6 +74,17 @@ function populateSenatorDiv(senatorsArray) {
 
     })
 }
+
+function populateDOM(characters) {
+    removeChildren(main)
+    senators.forEach((person) => {
+  
+        senFigure.appendChild(figImg)
+        senFigure.appendChild(figCaption)
+        senatorsDiv.appendChild(senFigure)
+    })
+  }
+
 
 populateSenatorDiv(simplifiedSenators())
 

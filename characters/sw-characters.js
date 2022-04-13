@@ -12,6 +12,8 @@ allCharsButton.addEventListener('click', function () {
 
 const maleCharacters = people.filter(person => person.gender === 'male')  // elegant filter!
 const femaleCharacters = people.filter(person => person.gender === 'female')  // elegant filter!
+const otherCharacters = people.filter((person) => person.gender !== "male" && person.gender !== "female")
+
 
 /* const otherCharacters = people.filter(person => {
   if (
@@ -23,7 +25,6 @@ const femaleCharacters = people.filter(person => person.gender === 'female')  //
   }
 }) */
 
-const otherCharacters = people.filter((person) => person.gender !== "male" && person.gender !== "female")
 
 const femaleCharsButton = document.createElement('button')
 femaleCharsButton.textContent = 'Female Characters'
