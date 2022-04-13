@@ -8,17 +8,18 @@ const header = document.querySelector('header')
 const main = document.querySelector('main')
 const buttons = document.querySelector('.buttons')
 
-const senatorsDiv = document.querySelector('.senatorsdiv')
-const representativesDiv = document.querySelector('.representativesdiv')
-const seniorityHeader = document.querySelector('.seniority')
-const loyaltyList = document.querySelector('.loyaltylist')
-
 const allCharsButton = document.createElement('button')
 allCharsButton.textContent = 'All People'
 buttons.appendChild(allCharsButton)
 allCharsButton.addEventListener('click', function () {
   populateDOM(senators)
 })
+
+const senatorsDiv = document.querySelector('.senatorsdiv')
+const representativesDiv = document.querySelector('.representativesdiv')
+const seniorityHeader = document.querySelector('.seniority')
+const loyaltyList = document.querySelector('.loyaltylist')
+
 
 const maleRep = senators.filter(senator => senator.gender === 'M')  // elegant filter!
 
