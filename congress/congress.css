@@ -24,7 +24,7 @@ figcaption{
 }
 
 li{
-    list-style-image: url("../images/vote-svgrepo-com.svg") 
+    list-style-type:circle ;
 }
 
 img{
