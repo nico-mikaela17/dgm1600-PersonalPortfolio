@@ -1,6 +1,10 @@
 :root{
-    --main-brown:#614720;
-    --main-white: #FFFFFF;
+    --main-darkblue:#00072d;
+    --main-darkgreen: #567568;
+    --main-gray: #ccdad1;
+    --main-lightcyan: #e0fbfc;
+    --main-teal: #50808e;
+
 }
 
 *{
@@ -14,10 +18,10 @@ html{
 }
 
 body{
-    background-color: rgb(245, 234, 209);
+    background-color: var(--main-teal)
 }
 h1{
-   background-color:#D6B163;
+   color: var(--main-lightcyan);
    font-family: Special Elite;
    font-size: 3.9rem;
    margin: 2rem;
@@ -26,7 +30,7 @@ h1{
 }
 
 h2{
-    background-color:#D6B163;
+    color: var(--main-darkgreen);
     font-family: Special Elite;
     font-size: 2rem;
     margin: 2rem;
@@ -36,7 +40,8 @@ h2{
 
 a{
     text-decoration: none;
-    color: black;
+    color: var(--main-darkblue);
+    font-weight: 800px;
     font-family: Source Code Pro;
 }
 
@@ -53,26 +58,26 @@ a{
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    background-color: #DEC197;
+    background-color: var(--main-gray);
     
 }
 
 .navlist a{
     text-decoration: none;
     display:block;  
-    color: var(--main-white);
+    color: var(--main-darkblue);
     padding: 1rem;
     font-size: 2rem;
 }
 
 .navlist a:hover{
-    background: var(--main-brown);
+    background: var(--main-teal);
     
 }
 
 #welcome-section{
     height: 100vh;
-    background-color: rgb(226, 205, 179);
+    background-color: var(--main-darkblue);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -102,7 +107,7 @@ a{
 
 .project-tile figcaption{
     text-align: center;
-    background-color: var(--main-brown);
+    background-color: var(--main-gray);
     color: var(--main-white);
 }
 
@@ -119,7 +124,7 @@ a{
 }
 
 .contact-details a{
-    text-shadow: 2px 2px 1px #1f1f1f2c;
+    text-shadow: 2px 2px 1px var(--main-darkblue);
     transition: transform 0.3s ease-out;
 }
 
@@ -128,7 +133,7 @@ a{
 }
 
 footer{
-    background-color: #D6B163;
+    background-color: var(--main-lightcyan);
     font-size: medium;
     text-align: center;
     margin: 1rem 2rem;
