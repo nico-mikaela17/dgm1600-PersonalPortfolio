@@ -29,6 +29,7 @@ const getAPIData = async (url) => {
     const pokeWeight = prompt("What is the Pokemon's weight?")
     const pokeAbilities = prompt("what are the Pokemon's abilities? Separate by commas,pls")
     const pokeTypes = prompt("What are your Pokemon's types? (up to 2 types separated by a space)")
+
     const newPokemon = new Pokemon(
       pokeName, 
       pokeHeight, 
@@ -36,6 +37,7 @@ const getAPIData = async (url) => {
       makeAbilitiesArray(pokeAbilities),
       makeTypesArray(pokeTypes),
       populatePokeCard(newPokemon)
+  )})
 
 function makeAbilitiesArray(commaString) {
   return commaString.split(',').map((abilityName) => {
@@ -82,9 +84,8 @@ function populateCardFront(pokemon) {
     const pokeImg = document.createElement('img')
     if (Pokemon.id === 9001) {
       pokeImg.src = '../images/pokeball.png'
-
-    else {    pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
-  }
+    }    else {
+      pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
     }
     const pokeCaption = document.createElement('figcaption')
     pokeCaption.textContent = pokemon.name
