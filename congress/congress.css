@@ -1,3 +1,8 @@
+:root{
+    --dark-blue: #000080;
+    --red: #b60e0e;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -17,6 +22,11 @@ h1{
 
 figure{
     width: 200px;
+    display: block;
+    background-image: linear-gradient(var(--dark-blue), var(--red)) ;
+
+    padding: 2rem;
+    margin: 2rem;
 }
 
 figcaption{
@@ -27,6 +37,3 @@ li{
     list-style-type:circle ;
 }
 
-img{
-    border-image: linear-gradient(red, darkblue) 30;
-}
