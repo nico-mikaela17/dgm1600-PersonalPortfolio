@@ -23,14 +23,25 @@ h1{
 figure{
     width: 200px;
     display: block;
-    background-image: linear-gradient(var(--dark-blue), var(--red)) ;
-
+    background-image: linear-gradient(var(--dark-blue), var(--red));
     padding: 2rem;
     margin: 2rem;
 }
 
+figure img{
+    margin: 0.2rem 7% 0.2rem -0.5rem;
+    width: 150px;
+
+}
+
 figcaption{
     text-align: center;
+    color: white;
+    font-size:x-large;
+}
+
+div.senatorsdiv figure:hover{
+    box-shadow: 6px 6px 10px #797979;
 }
 
 li{
