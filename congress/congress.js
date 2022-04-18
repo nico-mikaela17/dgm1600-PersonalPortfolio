@@ -21,7 +21,6 @@ const seniorityHeader = document.querySelector('.seniority')
 const loyaltyList = document.querySelector('.loyaltylist')
 
 
-const maleRep = senators.filter(senator => senator.gender === 'M')  // elegant filter!
 
 const femaleRep = document.createElement('button')
 //femaleRep = senators.filter(senator => senator.gender === "F")
@@ -29,7 +28,11 @@ femaleRep.textContent = 'Female Members'
 femaleRep.addEventListener('click', () => populateDOM(femaleRep))
 buttons.appendChild(femaleRep)
 
-//const femaleRep = senators.filter(senator => senator.gender === 'F')  // elegant filter!
+const maleRep = document.createElement('button')
+//const maleRep = senators.filter(senator => senator.gender === 'M')  // elegant filter!
+maleRep.textContent = 'Male Members'
+maleRep.addEventListener('click', () => populateDOM(maleRep))
+buttons.appendChild(maleRep)
 
 
 //const republicans = senators.filter(senator => senator.party === 'Republicans')  // elegant filter!
@@ -61,6 +64,7 @@ function simplifiedSenators() {
 }
 
 function populateSenatorDiv(senatorsArray) {
+    removeChildren(main)
     simplifiedSenators().forEach (senator => {
         const senFigure = document.createElement('figure')
         const figImg = document.createElement('img')
@@ -76,22 +80,10 @@ function populateSenatorDiv(senatorsArray) {
     })
 }
 
-function populateDOM(characters) {
-    removeChildren(main)
-    senators.forEach((person) => {
-  
-        senFigure.appendChild(figImg)
-        senFigure.appendChild(figCaption)
-        senatorsDiv.appendChild(senFigure)
-    })
-  }
-
-
 populateSenatorDiv(simplifiedSenators())
 
 const mostSeniorMember = simplifiedSenators().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator)
 const moreMissedVotes = simplifiedSenators().reduce((acc, senator) => acc.missedVotesPct > senator.missedVotesPct ? acc : senator)
-
 const moreMissedVotesList = simplifiedSenators().filter(senator => senator.missedVotesPct === moreMissedVotes).map(senator => senator.name).join(' and ')
 
 seniorityHeader.textContent = `The most senior Senator is ${mostSeniorMember.name} and the person that missed more votes is ${moreMissedVotes.name} and the people that missed more votes are ${moreMissedVotesList}`

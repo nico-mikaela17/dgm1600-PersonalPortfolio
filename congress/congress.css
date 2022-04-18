@@ -20,6 +20,10 @@ h1{
     color: blue;
 }
 
+/*.seniority.mostSeniorMember{
+    color: blueviolet;
+}*/
+
 figure{
     width: 200px;
     display: block;
@@ -45,6 +49,9 @@ div.senatorsdiv figure:hover{
 }
 
 li{
-    list-style-type:circle ;
+    text-indent: 1.5rem;
+    padding: 0.2em;
+    /*list-style-image: url('../images/vote.svg');*/
+
 }
 
