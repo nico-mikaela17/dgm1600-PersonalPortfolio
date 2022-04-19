@@ -37,6 +37,8 @@
 
 .front{
     background-color: darkolivegreen;
+    text-transform: capitalize;
+    text-align: center;
 }
 
 .back{
