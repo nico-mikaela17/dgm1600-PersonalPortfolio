@@ -51,14 +51,24 @@ function makeTypesArray(spaceString) {
   })
 }
 
-
+const loadedPokemon = []
 
 
 async function loadPokemon(offset = 0, limit = 25) {
    const data = await getAPIData(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
    for (const nameAndUrl of data.results){
      const singlePokemon = await getAPIData(nameAndUrl.url)
-    populatePokeCard(singlePokemon)
+    const simplifiedPokemon = {
+      id: singlePokemon.id,
+      height: singlePokemon.height,
+      weight: singlePokemon.weight,
+      name: singlePokemon.name,
+      abilities: singlePokemon.abilities,
+      types: singlePokemon. types,
+      moves: singlePokemon.moves.slice(0, 3)
+    }
+    loadedPokemon.push(simplifiedPokemon)
+     populatePokeCard(simplifiedPokemon)
    }
 }
 
@@ -81,6 +91,17 @@ function populatePokeCard(pokemon) {
 function populateCardFront(pokemon) {
     const pokeFront = document.createElement('figure')
     pokeFront.className = 'cardFace front'
+
+
+    const pokeType = pokemon.type[0].type.name
+    const pokeType2 = pokemon.type[1]?.type.name
+    console.log(pokeType,pokeType2)
+    pokeFront.style.setProperty('background', getPokeTypeColor(pokeType))
+
+    if(pokeType2) {
+      pokeFront.style.setProperty('background', `linear-gradient(${getPokeTypeColor(pokeType)}, ${getPokeTypeColor(pokeType2)})`)
+    }
+    
     const pokeImg = document.createElement('img')
     if (Pokemon.id === 9001) {
       pokeImg.src = '../images/pokeball.png'
@@ -114,4 +135,25 @@ function populateCardBack(pokemon) {
   return pokeBack
 }
 
-loadPokemon(0, 25)
+function getPokeTypeColor(pokeType) {
+  // if(pokeType === 'grass') return '#00FF00'
+  let color 
+  switch (pokeType) {
+    case 'grass': color = '#0F0'
+      
+      break;
+  
+    default:
+      break;
+  }
+  return color
+}
+
+function filterPokemonByType(type) {
+  return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type)
+}
+
+
+await loadPokemon(0, 25)
+
+console.log(filterPokemonByType('grass'))
