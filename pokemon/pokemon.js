@@ -21,7 +21,7 @@ const getAPIData = async (url) => {
   const pokeHeader = document.querySelector('header')
   const pokeGrid = document.querySelector('.pokegrid')
   const newButton = document.querySelector('button')
-  newButton.textContent = 'New Pokemon'
+    newButton.textContent = 'New Pokemon'
   pokeHeader.appendChild(newButton)
   newButton.addEventListener('click', () => {
     const pokeName = prompt('What is the name of your new Pokemon?', 'Nicole')
@@ -117,11 +117,36 @@ function populateCardFront(pokemon) {
 }
 
 function populateCardBack(pokemon) {
+
   const pokeBack = document.createElement('div')
   pokeBack.className = 'cardFace back'
   const label = document.createElement('h4')
   label.textContent = pokemon.name + ' Abilities'
   pokeBack.appendChild(label)
+
+  const idMain = document.createElement('ul')
+  pokemon.id.forEach((idOne) => {
+    const idName = document.createElement('h2')
+    idName.textContent = idOne.id.name
+    idMain.appendChild(idName)
+  })
+  pokeBack.appendChild(idMain)
+
+  const heightMain = document.createElement('ul')
+  pokemon.height.forEach((heightOne) => {
+    const heightNumber = document.createElement('h3')
+    heightNumber.textContent = heightOne.height.name
+    heightMain.appendChild(heightNumber)
+  })
+  pokeBack.appendChild(heightMain)
+
+  const weightMain = document.createElement('ul')
+  pokemon.weight.forEach((weightOne) => {
+    const weightNumber = document.createElement('h3')
+    weightNumber.textContent = weightOne.weight.name
+    weightMain.appendChild(weightNumber)
+  })
+  pokeBack.appendChild(weightMain)
 
   const abilityList = document.createElement('ul')
   pokemon.abilities.forEach((abilityItem) => {
@@ -131,6 +156,21 @@ function populateCardBack(pokemon) {
   })
   pokeBack.appendChild(abilityList)
 
+  const typesList = document.createElement('ul')
+  pokemon.types.forEach((typesItem) => {
+    const listItem = document.createElement('li')
+    typesItem.textContent = typesItem.types.name
+    typesList.appendChild(typesItem)
+  })
+  pokeBack.appendChild(typesList)
+
+  const movesList = document.createElement('ul')
+  pokemon.moves.forEach((movesItem) => {
+    const listItem = document.createElement('li')
+    movesItem.textContent = movesItem.moves.name
+    movesList.appendChild(movesItem)
+  })
+  pokeBack.appendChild(movesList)
 
   return pokeBack
 }
