@@ -29,6 +29,7 @@ const getAPIData = async (url) => {
     const pokeWeight = prompt("What is the Pokemon's weight?")
     const pokeAbilities = prompt("what are the Pokemon's abilities? Separate by commas,pls")
     const pokeTypes = prompt("What are your Pokemon's types? (up to 2 types separated by a space)")
+    const pokeMoves = prompt('What moves does your Pokemon have? (up to 3 moves separated by a /slash/')
 
     const newPokemon = new Pokemon(
       pokeName, 
@@ -36,6 +37,7 @@ const getAPIData = async (url) => {
       pokeWeight, 
       makeAbilitiesArray(pokeAbilities),
       makeTypesArray(pokeTypes),
+      makeMovesArray(pokeMoves),
       populatePokeCard(newPokemon)
   )})
 
@@ -48,6 +50,12 @@ function makeAbilitiesArray(commaString) {
 function makeTypesArray(spaceString) {
   return spaceString.split(' ').map((typeName) => {
     return {type:{name: typeName}}
+  })
+}
+
+function makeMovesArray(slashString) {
+  return slashString.split('/').map((moveName) => {
+    return {move:{name:moveName}}
   })
 }
 
@@ -177,14 +185,40 @@ function populateCardBack(pokemon) {
 
 function getPokeTypeColor(pokeType) {
   // if(pokeType === 'grass') return '#00FF00'
-  let color 
+  let color
   switch (pokeType) {
-    case 'grass': color = '#0F0'
-      
-      break;
-  
+    case 'grass':
+      color = '#00FF00'
+      break
+    case 'fire':
+      color = '#FF0000'
+      break
+    case 'water':
+      color = '#0000FF'
+      break
+    case 'bug':
+      color = '#7FFF00'
+      break
+    case 'normal':
+      color = '#F5F5DC'
+      break
+    case 'flying':
+      color = '#00FFFF'
+      break
+    case 'poison':
+      color = '#C300FF'
+      break
+    case 'electric':
+      color = '#C8FF00'
+      break
+    case 'psychic':
+      color = 'pink'
+      break
+    case 'ground':
+      color = 'brown'
+      break
     default:
-      break;
+      color = '#888888'
   }
   return color
 }
