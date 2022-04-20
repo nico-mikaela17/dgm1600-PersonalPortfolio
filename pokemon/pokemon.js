@@ -20,8 +20,8 @@ const getAPIData = async (url) => {
   
   const pokeHeader = document.querySelector('header')
   const pokeGrid = document.querySelector('.pokegrid')
-  const newButton = document.querySelector('button')
-    newButton.textContent = 'New Pokemon'
+  const newButton = document.createElement('button')
+  newButton.textContent = 'New Pokemon'
   pokeHeader.appendChild(newButton)
   newButton.addEventListener('click', () => {
     const pokeName = prompt('What is the name of your new Pokemon?', 'Nicole')
@@ -101,8 +101,8 @@ function populateCardFront(pokemon) {
     pokeFront.className = 'cardFace front'
 
 
-    const pokeType = pokemon.type[0].type.name
-    const pokeType2 = pokemon.type[1]?.type.name
+    const pokeType = pokemon.types[0].type.name
+    const pokeType2 = pokemon.types[1]?.type.name
     console.log(pokeType,pokeType2)
     pokeFront.style.setProperty('background', getPokeTypeColor(pokeType))
 
