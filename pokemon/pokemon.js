@@ -43,19 +43,19 @@ const getAPIData = async (url) => {
 
 function makeAbilitiesArray(commaString) {
   return commaString.split(',').map((abilityName) => {
-    return {ability:{name: abilityName}}
+    return { ability:{name: abilityName}}
   })
 }
 
 function makeTypesArray(spaceString) {
   return spaceString.split(' ').map((typeName) => {
-    return {type:{name: typeName}}
+    return { type:{name: typeName}}
   })
 }
 
 function makeMovesArray(slashString) {
   return slashString.split('/').map((moveName) => {
-    return {move:{name:moveName}}
+    return { move:{name:moveName}}
   })
 }
 
@@ -132,29 +132,17 @@ function populateCardBack(pokemon) {
   label.textContent = pokemon.name + ' Abilities'
   pokeBack.appendChild(label)
 
-  const idMain = document.createElement('ul')
-  pokemon.id.forEach((idItem) => {
-    const idName = document.createElement('h2')
-    idName.textContent = idItem.id.name
-    idMain.appendChild(idName)
-  })
-  pokeBack.appendChild(idMain)
+  const idItem = document.createElement('h2')
+  idItem.textContent = pokemon.id
+  pokeBack.appendChild(idItem)
 
-  const heightMain = document.createElement('ul')
-  pokemon.height.forEach((heightItem) => {
-    const heightNumber = document.createElement('h3')
-    heightNumber.textContent = heightItem.height.name
-    heightMain.appendChild(heightNumber)
-  })
-  pokeBack.appendChild(heightMain)
+  const heightItem = document.createElement('h2')
+  heightItem.textContent = pokemon.height
+  pokeBack.appendChild(heightItem)
 
-  const weightMain = document.createElement('ul')
-  pokemon.weight.forEach((weightItem) => {
-    const weightNumber = document.createElement('h3')
-    weightNumber.textContent = weightItem.weight.name
-    weightMain.appendChild(weightNumber)
-  })
-  pokeBack.appendChild(weightMain)
+  const weightItem = document.createElement('h2')
+  weightItem.textContent = pokemon.weight
+  pokeBack.appendChild(weightItem)
 
   const abilityList = document.createElement('ul')
   pokemon.abilities.forEach((abilityItem) => {
@@ -181,6 +169,32 @@ function populateCardBack(pokemon) {
   pokeBack.appendChild(movesList)
 
   return pokeBack
+
+  /*const idMain = document.createElement('ul')
+  pokemon.id.forEach((idItem) => {
+    const idName = document.createElement('h2')
+    idName.textContent = idItem.id.name
+    idMain.appendChild(idName)
+  })
+  pokeBack.appendChild(idMain)
+
+  const heightMain = document.createElement('ul')
+  pokemon.height.forEach((heightItem) => {
+    const heightNumber = document.createElement('h3')
+    heightNumber.textContent = heightItem.height.name
+    heightMain.appendChild(heightNumber)
+  })
+  pokeBack.appendChild(heightMain)
+
+  const weightMain = document.createElement('ul')
+  pokemon.weight.forEach((weightItem) => {
+    const weightNumber = document.createElement('h3')
+    weightNumber.textContent = weightItem.weight.name
+    weightMain.appendChild(weightNumber)
+  })
+  pokeBack.appendChild(weightMain)*/
+
+  
 }
 
 function getPokeTypeColor(pokeType) {
