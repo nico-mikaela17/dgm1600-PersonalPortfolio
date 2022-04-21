@@ -133,25 +133,25 @@ function populateCardBack(pokemon) {
   pokeBack.appendChild(label)
 
   const idMain = document.createElement('ul')
-  pokemon.id.forEach((idOne) => {
+  pokemon.id.forEach((idItem) => {
     const idName = document.createElement('h2')
-    idName.textContent = idOne.id.name
+    idName.textContent = idItem.id.name
     idMain.appendChild(idName)
   })
   pokeBack.appendChild(idMain)
 
   const heightMain = document.createElement('ul')
-  pokemon.height.forEach((heightOne) => {
+  pokemon.height.forEach((heightItem) => {
     const heightNumber = document.createElement('h3')
-    heightNumber.textContent = heightOne.height.name
+    heightNumber.textContent = heightItem.height.name
     heightMain.appendChild(heightNumber)
   })
   pokeBack.appendChild(heightMain)
 
   const weightMain = document.createElement('ul')
-  pokemon.weight.forEach((weightOne) => {
+  pokemon.weight.forEach((weightItem) => {
     const weightNumber = document.createElement('h3')
-    weightNumber.textContent = weightOne.weight.name
+    weightNumber.textContent = weightItem.weight.name
     weightMain.appendChild(weightNumber)
   })
   pokeBack.appendChild(weightMain)
