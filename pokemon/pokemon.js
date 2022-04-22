@@ -115,7 +115,7 @@ function populateCardFront(pokemon) {
     
     const pokeImg = document.createElement('img')
     if (Pokemon.id === 9001) {
-      pokeImg.src = '../images/pokeball.png'
+      pokeImg.src = '/images/pokeball.png'
     }    else {
       pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
     }
