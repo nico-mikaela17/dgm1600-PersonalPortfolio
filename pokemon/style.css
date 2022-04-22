@@ -25,6 +25,10 @@
     text-transform: capitalize;
 }
 
+h3{
+    text-align: right;
+}
+
 .card.is-flipped{
     transform: rotateY(180deg);
 }

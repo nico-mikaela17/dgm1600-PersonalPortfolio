@@ -38,7 +38,6 @@ const getAPIData = async (url) => {
       makeAbilitiesArray(pokeAbilities),
       makeTypesArray(pokeTypes),
       makeMovesArray(pokeMoves),
-      populatePokeCard(newPokemon)
   )
   populatePokeCard(newPokemon)
 })
