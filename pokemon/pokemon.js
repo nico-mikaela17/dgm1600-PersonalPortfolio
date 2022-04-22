@@ -130,21 +130,23 @@ function populateCardBack(pokemon) {
 
   const pokeBack = document.createElement('div')
   pokeBack.className = 'cardFace back'
+
+
+  const idItem = document.createElement('h3')
+  idItem.textContent = 'ID: ' + pokemon.id
+  pokeBack.appendChild(idItem)
+
+  const heightItem = document.createElement('h3')
+  heightItem.textContent = 'Height: ' + pokemon.height
+  pokeBack.appendChild(heightItem)
+
+  const weightItem = document.createElement('h3')
+  weightItem.textContent = 'Weight: ' + pokemon.weight
+  pokeBack.appendChild(weightItem)
+
   const label = document.createElement('h4')
   label.textContent = ' Abilities'
   pokeBack.appendChild(label)
-
-  const idItem = document.createElement('h2')
-  idItem.textContent = pokemon.id.name
-  pokeBack.appendChild(idItem)
-
-  const heightItem = document.createElement('h2')
-  heightItem.textContent = pokemon.height.name
-  pokeBack.appendChild(heightItem)
-
-  const weightItem = document.createElement('h2')
-  weightItem.textContent = pokemon.weight.name
-  pokeBack.appendChild(weightItem)
 
   const abilityList = document.createElement('ul')
   pokemon.abilities.forEach((abilityItem) => {
@@ -154,19 +156,27 @@ function populateCardBack(pokemon) {
   })
   pokeBack.appendChild(abilityList)
 
+  const labelTypes = document.createElement('h4')
+  labelTypes.textContent = 'Types'
+  pokeBack.appendChild(labelTypes)
+
   const typesList = document.createElement('ul')
   pokemon.types.forEach((typesItem) => {
     const listItem = document.createElement('li')
-    listItem.textContent = typesItem.types.name
-    typesList.appendChild(typesItem)
+    listItem.textContent = typesItem.type.name
+    typesList.appendChild(listItem)
   })
   pokeBack.appendChild(typesList)
+
+  const labelMoves = document.createElement('h4')
+  labelMoves.textContent = 'Moves'
+  pokeBack.appendChild(labelMoves)
 
   const movesList = document.createElement('ul')
   pokemon.moves.forEach((movesItem) => {
     const listItem = document.createElement('li')
-    listItem.textContent = movesItem.moves.name
-    movesList.appendChild(movesItem)
+    listItem.textContent = movesItem.move.name
+    movesList.appendChild(listItem)
   })
   pokeBack.appendChild(movesList)
 
@@ -243,6 +253,6 @@ function filterPokemonByType(type) {
 }
 
 
-await loadPokemon(0, 25)
+await loadPokemon(0, 150)
 
 console.log(filterPokemonByType('grass'))
