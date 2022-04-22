@@ -3,9 +3,23 @@
     box-sizing: border-box;
 }
 
+header{
+    font-size: x-large;
+    text-align: center;
+    font-family: "PokemonHollow";
+    src: url(/fonts/PokemonHollow.ttf);
+}
+
+/*@font-face {
+    font-family: "Pokemon Hollow";
+    src: url("/fonts/PokemonHollow.woff2");
+  }*/
+  
+
 .pokegrid{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .scene{
@@ -43,12 +57,11 @@ h3{
   }
 
 .front{
-    background-color: darkolivegreen;
     text-align: center;
 }
 
 .back{
-    background-color: bisque;
+    background: content-box linear-gradient(rgb(255, 188, 188), rgb(255, 216, 145), rgb(255, 255, 154), rgb(167, 236, 167), rgb(177, 177, 255), rgb(225, 183, 255), violet);
     transform: rotateY(180deg);
 }
 
@@ -63,5 +76,6 @@ figure img{
 }
 
 ul {
-    list-style-type: square;
+    list-style-type: '🔴';
+    font-size: small;
 }
