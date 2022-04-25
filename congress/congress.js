@@ -127,13 +127,14 @@ header.appendChild(allDemocrats)
 populateSenatorDiv(simplifiedSenators())
 populateRepDiv(simplifiedRepresentatives())
 
-const mostSeniorMember = simplifiedSenators().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator)
+const mostSeniorSenator = simplifiedSenators().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator)
+const mostSeniorRep = simplifiedRepresentatives().reduce((acc, representative) => acc.seniority > representative.seniority ? acc : representative)
 
 const biggestMissedVotesPct = simplifiedSenators().reduce((acc, senator) => acc.missedVotesPct > senator.missedVotesPct ? acc : senator)
 
 const biggestVactionerList = simplifiedSenators().filter(senator => senator.missedVotesPct === biggestMissedVotesPct.missedVotesPct).map(senator => senator.name).join(' and ')
 
-seniorityHeader.textContent = `The most senior Senator is ${mostSeniorMember.name} and the biggest fans of vacations are ${biggestVactionerList}.`
+seniorityHeader.textContent = `The most senior Senator is ${mostSeniorSenator.name} and most senior Representative is ${mostSeniorRep.name} and the biggest fans of vacations are ${biggestVactionerList}.`
 
 simplifiedSenators().forEach(senator => {
   if(senator.loyaltyPct === 100) {
