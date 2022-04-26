@@ -8,6 +8,8 @@ header{
     text-align: center;
     font-family: "PokemonHollow";
     src: url(/fonts/PokemonHollow.ttf);
+    display: flex;
+    justify-content:space-evenly;
 }
 
 /*@font-face {

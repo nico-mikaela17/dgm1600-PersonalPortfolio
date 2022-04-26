@@ -21,16 +21,18 @@ const getAPIData = async (url) => {
     }
   }
  
-const header = document.querySelector('header')
-const loadButton = document.createElement('button')
-loadButton.textContent = 'Load Pokemon'
-header.appendChild(loadButton)
-loadButton.addEventListener('click', async () => {
-  if(loadedPokemon.length === 0){}
-  await loadPokemon(0, 250)
+  const loadedPokemon = []
+
+ const pokeHeader = document.querySelector('header')
+ const loadButton = document.createElement('button')
+ loadButton.textContent = 'Load Pokemon'
+ pokeHeader.appendChild(loadButton)
+ loadButton.addEventListener('click', async () => {
+  if(loadedPokemon.length === 0){
+    removeChildren(pokeGrid)
+  await loadPokemon(0, 50)}
 })
 
-  const pokeHeader = document.querySelector('header')
   const pokeGrid = document.querySelector('.pokegrid')
   const newButton = document.createElement('button')
   newButton.textContent = 'New Pokemon'
@@ -72,7 +74,6 @@ function makeMovesArray(slashString) {
   })
 }
 
-const loadedPokemon = []
 
 
 async function loadPokemon(offset = 0, limit = 25) {
