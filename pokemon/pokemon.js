@@ -1,3 +1,5 @@
+import { removeChildren } from "../utils/index.js"
+
 const getAPIData = async (url) => {
     try {
       const result = await fetch(url)
@@ -17,7 +19,16 @@ const getAPIData = async (url) => {
       (this.types = types)
     }
   }
-  
+ 
+const header = document.querySelector('header')
+const loadButton = document.createElement('button')
+loadButton.textContent = 'Load Pokemon'
+header.appendChild(loadButton)
+loadButton.addEventListener('click', async () => {
+  if(loadedPokemon.length === 0){}
+  await loadPokemon(0, 250)
+})
+
   const pokeHeader = document.querySelector('header')
   const pokeGrid = document.querySelector('.pokegrid')
   const newButton = document.createElement('button')
@@ -259,6 +270,15 @@ function filterPokemonByType(type) {
 }
 
 
-await loadPokemon(0, 150)
-
-console.log(filterPokemonByType('grass'))
+const typeSelector = document.querySelector('#type-select')
+typeSelector.addEventListener('change', (event) => {
+  const usersTypeChoice = event.target.value.toLowerCase()
+ if(event.target.value === 'Show all'){
+  loadedPokemon.forEach((singlePokemon) => {
+    populatePokeCard(singlePokemon)})
+   } else{
+  const pokemonByType = filterPokemonByType(usersTypeChoice)
+  removeChildren(pokeGrid)
+  pokemonByType.forEach((eachSinglePokemon) => populatePokeCard(eachSinglePokemon))
+}
+})
