@@ -106,7 +106,7 @@ function populateCardFront(pokemon) {
     const pokeType2 = pokemon.types[1]?.type.name
     //console.log(pokeType,pokeType2)
     pokeFront.style.setProperty('background', getPokeTypeColor(pokeType))
-    //pokeBack.style.setProperty('background', getPokeTypeColor(pokeType))
+    
 
 
     if(pokeType2) {
@@ -131,8 +131,11 @@ function populateCardBack(pokemon) {
 
   const pokeBack = document.createElement('div')
   pokeBack.className = 'cardFace back'
- // pokeBack.style.setProperty('background', getPokeTypeColor(pokeType))
 
+  const pokeType = pokemon.types[0].type.name
+  //const pokeType2 = pokemon.types[1]?.type.name
+
+  pokeBack.style.setProperty('background', getPokeTypeColor(pokeType))
 
   const idItem = document.createElement('h3')
   idItem.textContent = 'ID: ' + pokemon.id

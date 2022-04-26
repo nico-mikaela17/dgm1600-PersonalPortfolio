@@ -88,7 +88,7 @@ h3{
 }
 
 .back{
-    background: content-box linear-gradient(rgb(255, 188, 188), rgb(255, 216, 145), rgb(255, 255, 154), rgb(167, 236, 167), rgb(177, 177, 255), rgb(225, 183, 255), violet);
+    /*background: content-box linear-gradient(rgb(255, 188, 188), rgb(255, 216, 145), rgb(255, 255, 154), rgb(167, 236, 167), rgb(177, 177, 255), rgb(225, 183, 255), violet);*/
     transform: rotateY(180deg);
 }
 
