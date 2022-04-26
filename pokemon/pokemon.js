@@ -136,6 +136,7 @@ function populateCardBack(pokemon) {
   //const pokeType2 = pokemon.types[1]?.type.name
 
   pokeBack.style.setProperty('background', getPokeTypeColor(pokeType))
+  //pokeBack.style.opacity = "0.7";
 
   const idItem = document.createElement('h3')
   idItem.textContent = 'ID: ' + pokemon.id
