@@ -64,6 +64,7 @@ button:hover {
     cursor:pointer;
     position: relative;
     text-transform: capitalize;
+    
 }
 
 h3{
@@ -81,6 +82,12 @@ h3{
     backface-visibility: hidden;
     border-radius: 5px;
     padding: 0.5rem;
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6)
   }
 
 .front{
@@ -97,6 +104,12 @@ figure{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+figcaption{
+    font-size: x-large;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
 }
 
 figure img{

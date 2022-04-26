@@ -86,7 +86,8 @@ async function loadPokemon(offset = 0, limit = 25) {
       name: singlePokemon.name,
       abilities: singlePokemon.abilities,
       types: singlePokemon. types,
-      moves: singlePokemon.moves.slice(0, 3)
+      moves: singlePokemon.moves.slice(0, 3),
+      hp: singlePokemon.stats
     }
     loadedPokemon.push(simplifiedPokemon)
      populatePokeCard(simplifiedPokemon)
