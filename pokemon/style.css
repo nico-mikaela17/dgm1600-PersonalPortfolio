@@ -108,7 +108,7 @@ figure{
 
 figcaption{
     font-size: x-large;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(54,59,129, 0.2);
     border-radius: 10px;
 }
 
