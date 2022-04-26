@@ -24,9 +24,10 @@ const getAPIData = async (url) => {
   const loadedPokemon = []
 
  const pokeHeader = document.querySelector('header')
+ const pokeNav = document.querySelector('nav')
  const loadButton = document.createElement('button')
  loadButton.textContent = 'Load Pokemon'
- pokeHeader.appendChild(loadButton)
+ pokeNav.appendChild(loadButton)
  loadButton.addEventListener('click', async () => {
   if(loadedPokemon.length === 0){
     removeChildren(pokeGrid)
@@ -36,7 +37,7 @@ const getAPIData = async (url) => {
   const pokeGrid = document.querySelector('.pokegrid')
   const newButton = document.createElement('button')
   newButton.textContent = 'New Pokemon'
-  pokeHeader.appendChild(newButton)
+  pokeNav.appendChild(newButton)
   newButton.addEventListener('click', () => {
     const pokeName = prompt('What is the name of your new Pokemon?', 'Nicole')
     const pokeHeight = prompt('How tall is it?')
@@ -88,7 +89,7 @@ async function loadPokemon(offset = 0, limit = 25) {
       abilities: singlePokemon.abilities,
       types: singlePokemon. types,
       moves: singlePokemon.moves.slice(0, 3),
-      hp: singlePokemon.stats
+      hp: singlePokemon.stats[0].base_stat
     }
     loadedPokemon.push(simplifiedPokemon)
      populatePokeCard(simplifiedPokemon)
@@ -164,6 +165,10 @@ function populateCardBack(pokemon) {
   weightItem.textContent = 'Weight: ' + pokemon.weight
   pokeBack.appendChild(weightItem)
 
+  const pokeHp = document.createElement('h4')
+  pokeHp.textContent = 'HP: ' + pokemon.hp
+  pokeBack.appendChild(pokeHp)
+
   const label = document.createElement('h4')
   label.textContent = ' Abilities'
   pokeBack.appendChild(label)
@@ -199,6 +204,8 @@ function populateCardBack(pokemon) {
     movesList.appendChild(listItem)
   })
   pokeBack.appendChild(movesList)
+
+
 
   return pokeBack
   
@@ -283,5 +290,16 @@ typeSelector.addEventListener('change', (event) => {
   const pokemonByType = filterPokemonByType(usersTypeChoice)
   removeChildren(pokeGrid)
   pokemonByType.forEach((eachSinglePokemon) => populatePokeCard(eachSinglePokemon))
+  calculateHP()
 }
 })
+
+function calculateHP() {
+  const mostHP = loadedPokemon().reduce((acc, pokemon) => acc.hp > pokemon.hp ? acc: pokemon, {})
+
+  const messageArea = document.querySelector('.messageArea')
+    messageArea.textContent = `The Pokemon with the most HP is ${mostHP.name} at ${mostHP.hp}`
+
+}
+
+
