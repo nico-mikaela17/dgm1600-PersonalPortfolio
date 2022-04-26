@@ -10,13 +10,14 @@ const getAPIData = async (url) => {
   }
 
   class Pokemon{
-    constructor(name, height, weight, abilities, types) {
+    constructor(name, height, weight, abilities, types, moves) {
       (this.id = 9001),
       (this.name = name),
       (this.height = height),
       (this.weight = weight),
       (this.abilities = abilities),
-      (this.types = types)
+      (this.types = types),
+      (this.moves = moves)
     }
   }
  
@@ -125,7 +126,7 @@ function populateCardFront(pokemon) {
     }
     
     const pokeImg = document.createElement('img')
-    if (Pokemon.id === 9001) {
+    if (pokemon.id === 9001) {
       pokeImg.src = '/images/pokeball.png'
     }    else {
       pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
