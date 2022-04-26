@@ -100,6 +100,19 @@ h3{
     font-size: smaller;;
 }
 
+select{
+    height: 40px;
+    width: 120px;
+    background-color: rgba(54,59,129, 0.4);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+    border-radius: 3px;
+}
+
 figure{
     display: flex;
     flex-direction: column;
