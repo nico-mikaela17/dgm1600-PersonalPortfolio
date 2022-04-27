@@ -9,6 +9,14 @@ main {
 
 }
 
+header{
+  background-image: url(/images/og-generic_02031d2b.webp);
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: 100vw;
+  height: 350px;
+}
+
 button {
   width: 10rem;
   height: 3rem;
@@ -17,6 +25,7 @@ button {
   font-family: Josefin Sans;
   font-size: medium;
   border-radius: 5px;
+  
 }
 
 figure img {
