@@ -59,7 +59,7 @@ a{
     display: flex;
     justify-content: flex-end;
     background-color: var(--main-gray);
-    
+    height: 7.1rem;
 }
 
 .navlist a{
@@ -72,16 +72,33 @@ a{
 
 .navlist a:hover{
     background: var(--main-teal);
-    
+    height: 50px;
 }
 
 #welcome-section{
     height: 100vh;
     background-color: var(--main-darkblue);
+    background-image: url(/images/websitedeveloper.jpg);
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size: 100vw;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+
+#welcome-section h1{
+    background-color: #00072d;
+    width: 60rem;
+    padding: 0.7rem;
+    align-items: center;
+}
+
+#welcome-section h2{
+    background-color: var(--main-lightcyan);
+    width: 50rem;
+    padding: 0.3rem;
 }
 
 #projects{
@@ -90,12 +107,14 @@ a{
     margin: auto;
     align-items: center;
     justify-content: space-evenly;
+    padding: 2rem 10rem;
 }
 
 .project-tiles{
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    justify-content: center;
+    align-items:baseline;
     padding: 6rem;
 }
 
@@ -111,6 +130,7 @@ a{
     text-align: center;
     background-color: var(--main-gray);
     color: var(--main-white);
+    font-size: x-large;
 }
 
 #contacts{
@@ -135,7 +155,7 @@ a{
 }
 
 footer{
-    background-color: var(--main-lightcyan);
+    color: var(--main-lightcyan);
     font-size: medium;
     text-align: center;
     margin: 1rem 2rem;
