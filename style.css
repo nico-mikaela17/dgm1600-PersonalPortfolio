@@ -110,6 +110,10 @@ a{
     padding: 2rem 10rem;
 }
 
+#projects h1{
+    padding: 4rem 1rem 1rem 1rem;
+}
+
 .project-tiles{
     display: flex;
     flex-wrap: wrap;
