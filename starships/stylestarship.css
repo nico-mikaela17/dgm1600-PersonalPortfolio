@@ -7,10 +7,13 @@
 header{
     font-size: xxx-large;
     color: rgb(124, 170, 255);
+    text-align: center;
 }
 
 body{
     background-color: rgb(32, 40, 49);
+    background-image: url(/images/starsbackground.jpg);
+
 }
 
 .mainContainer{
@@ -32,12 +35,11 @@ body{
 }
 
 .box{
-    background-color: rgb(226, 164, 29);
+    background-color: yellow;
 }
 
 .modal-background{
-    background-color: rgb(124, 170, 255);
-    opacity: 0.4;
+    background-color: rgba(9, 54, 138, 0.2);
 }
 
 .box p{

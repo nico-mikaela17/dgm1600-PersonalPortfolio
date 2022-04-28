@@ -91,14 +91,9 @@ a{
 #welcome-section h1{
     background-color: #00072d;
     width: 60rem;
-    padding: 0.7rem;
     align-items: center;
-}
-
-#welcome-section h2{
-    background-color: var(--main-lightcyan);
-    width: 50rem;
-    padding: 0.3rem;
+    margin-top: 3.5rem;
+    padding-top: 1rem;
 }
 
 #projects{

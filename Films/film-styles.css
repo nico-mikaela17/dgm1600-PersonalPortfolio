@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   background-color: cadetblue;
+  background-image: url(/images/starsbackground.jpg);
 }
 
 h1 {
@@ -10,10 +11,6 @@ h1 {
   text-align: center;
   font-family: Staatliches;
   font-size: xxx-large;
-}
-
-h1 {
-  color: white;
 }
 
 main {
@@ -24,6 +21,8 @@ main {
 
 figure {
   margin: 1rem;
+  border-style:solid;
+  border-color: white;
 }
 
 
