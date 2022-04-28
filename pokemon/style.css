@@ -12,6 +12,10 @@ header{
     justify-content:end;
 }
 
+h3{
+    text-align: right;
+}
+
 /*@font-face {
     font-family: "Pokemon Hollow";
     src: url("/fonts/PokemonHollow.woff2");
@@ -89,6 +93,27 @@ button:hover {
     background-color: rgba(255, 0, 0, 1);
 }
 
+figure{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+figcaption{
+    font-size: x-large;
+    background-color: rgba(54,59,129, 0.2);
+    border-radius: 10px;
+}
+
+figure img{
+    width: 200px;
+}
+
+li {
+    /*list-style-image: url(/images/pokeball.png);*/
+    font-size: small;
+}
+
 .pokegrid{
     display: flex;
     flex-wrap: wrap;
@@ -113,9 +138,7 @@ button:hover {
     
 }
 
-h3{
-    text-align: right;
-}
+
 
 .card.is-flipped{
     transform: rotateY(-180deg);
@@ -140,31 +163,17 @@ h3{
     text-align: center;
 }
 
+.front img{
+    align-items: center;
+    margin-top: -2rem;
+}
+
+.front figcaption{
+    margin-top: -2.2rem;
+}
+
 .back{
     /*background: content-box linear-gradient(rgb(255, 188, 188), rgb(255, 216, 145), rgb(255, 255, 154), rgb(167, 236, 167), rgb(177, 177, 255), rgb(225, 183, 255), violet);*/
     transform: rotateY(180deg);
-    font-size: smaller;;
-}
-
-
-
-figure{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-figcaption{
-    font-size: x-large;
-    background-color: rgba(54,59,129, 0.2);
-    border-radius: 10px;
-}
-
-figure img{
-    width: 200px;
-}
-
-li {
-    /*list-style-image: url(/images/pokeball.png);*/
-    font-size: small;
+    font-size: smaller;
 }
