@@ -1,10 +1,4 @@
 export const representatives = [
-  {
-    congress: "116",
-    chamber: "House",
-    num_results: 440,
-    offset: 0,
-    members: [
       {
         id: "A000374",
         title: "Representative",
@@ -20246,6 +20240,4 @@ export const representatives = [
         missed_votes_pct: 0,
         votes_with_party_pct: 95.83,
       },
-    ],
-  },
-];
+]
