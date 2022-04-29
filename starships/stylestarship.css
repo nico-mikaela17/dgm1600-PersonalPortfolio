@@ -64,6 +64,8 @@ a:hover{
 }
 
 footer{
-    font-size: medium;
     color: rgb(124, 170, 255);
+    font-size: medium;
+    text-align: center;
+    margin: 1rem 2rem;
 }

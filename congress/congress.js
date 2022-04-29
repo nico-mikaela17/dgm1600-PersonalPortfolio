@@ -89,16 +89,17 @@ const democratMembers = allMembersOfCongress.filter(democrat => democrat.party =
 
 //BUTTONS
 const allSenatorMembers = document.createElement('button')
-allSenatorMembers.textContent = 'All Senators'
+allSenatorMembers.textContent = 'Senators'
 allSenatorMembers.addEventListener('click', function () {
   populateCongressDiv(allSenators)
 })
 navBar.appendChild(allSenatorMembers)
 
 const allRepresentativeMembers = document.createElement('button')
-allRepresentativeMembers.textContent = 'All Representatives'
+allRepresentativeMembers.textContent = 'Representatives'
 allRepresentativeMembers.addEventListener('click', function () {
   populateCongressDiv(allRepresentatives)
+  console.log(allRepresentatives)
 })
 navBar.appendChild(allRepresentativeMembers)
 

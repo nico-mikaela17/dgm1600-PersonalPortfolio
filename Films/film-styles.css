@@ -32,3 +32,11 @@ figcaption {
   font-family: roboto mono;
   color: aliceblue;
 }
+
+footer{
+  color: white;
+  font-family: Staatliches;
+  font-size: medium;
+  text-align: center;
+  margin: 1rem 2rem;
+}

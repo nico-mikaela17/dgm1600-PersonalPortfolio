@@ -106,7 +106,7 @@ a{
 }
 
 #projects h1{
-    padding: 4rem 1rem 1rem 1rem;
+    padding-top: 4rem;
 }
 
 .project-tiles{
@@ -115,6 +115,7 @@ a{
     justify-content: center;
     align-items:baseline;
     padding: 6rem;
+    padding-top: 0rem;
 }
 
 .project-tiles a{

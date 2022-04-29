@@ -177,3 +177,10 @@ li {
     transform: rotateY(180deg);
     font-size: smaller;
 }
+
+footer{
+    color: red;
+    font-size: medium;
+    text-align: center;
+    margin: 1rem 2rem;
+}
