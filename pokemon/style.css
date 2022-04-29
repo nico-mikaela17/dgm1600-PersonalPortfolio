@@ -4,10 +4,10 @@
 }
 
 header{
-    font-size: x-large;
-    text-align: center;
-    font-family: "PokemonHollow";
-    src: url(/fonts/PokemonHollow.ttf);
+    height: 12rem;
+    background-image: url(/images/pokemonLogo.png);
+    background-repeat: no-repeat;
+    background-size: 500px;
     display: flex;
     justify-content:end;
 }
@@ -26,21 +26,43 @@ body{
 }
 
 select{
-    height: 40px;
-    width: 120px;
-    background-color: rgba(54,59,129, 0.4);
-    background-image: linear-gradient(to top left,
-                                      rgba(0, 0, 0, .2),
-                                      rgba(0, 0, 0, .2) 30%,
-                                      rgba(0, 0, 0, 0));
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-                inset -2px -2px 3px rgba(0, 0, 0, .6);
-    border-radius: 3px;
-    margin: 2rem;
+align-self: center;
+background-color: #fff;
+background-image: none;
+background-position: 0 90%;
+background-repeat: repeat no-repeat;
+background-size: 4px 3px;
+border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+border-style: solid;
+border-width: 2px;
+box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+box-sizing: border-box;
+color: #41403e;
+cursor: pointer;
+display: inline-block;
+font-family: Neucha, sans-serif;
+font-size: 1rem;
+line-height: 23px;
+outline: none;
+padding: .75rem;
+text-decoration: none;
+transition: all 235ms ease-in-out;
+border-bottom-left-radius: 15px 255px;
+border-bottom-right-radius: 225px 15px;
+border-top-left-radius: 255px 15px;
+border-top-right-radius: 15px 225px;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
 }
 
-select:hover{
-    background-color: rgba(255, 0, 0, 0.9);
+select:hover {
+box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+transform: translate3d(0, 2px, 0);
+}
+
+select:focus {
+box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
 nav{
@@ -51,46 +73,43 @@ nav{
 }
 
 button{
-
-    font-size: 16px;
-    font-weight: 200;
-    letter-spacing: 1px;
-    padding: 13px 20px 13px;
-    outline: 0;
-    border: 1px solid black;
-    cursor: pointer;
-    position: relative;
-    background-color: rgba(0, 0, 0, 0);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-
-button:after {
-  content: "";
-  background-color: rgba(231, 10, 10,0.7);
-  width: 100%;
-  z-index: -1;
-  position: absolute;
-  height: 100%;
-  top: 7px;
-  left: 7px;
-  transition: 0.2s;
-}
-
-button:hover:after {
-  top: 0px;
-  left: 0px;
-}
-
-@media (min-width: 768px) {
-  button {
-    padding: 13px 50px 13px;
-  }
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 button:hover {
-    background-color: rgba(255, 0, 0, 1);
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+button:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
 figure{
@@ -179,7 +198,7 @@ li {
 }
 
 footer{
-    color: red;
+    color: black;
     font-size: medium;
     text-align: center;
     margin: 1rem 2rem;

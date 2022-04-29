@@ -25,6 +25,7 @@ const getAPIData = async (url) => {
 
  const pokeHeader = document.querySelector('header')
  const pokeNav = document.querySelector('nav')
+
  const loadButton = document.createElement('button')
  loadButton.textContent = 'Load Pokemon'
  pokeNav.appendChild(loadButton)
@@ -151,6 +152,7 @@ function populateCardBack(pokemon) {
   //const pokeType2 = pokemon.types[1]?.type.name
 
   pokeBack.style.setProperty('background', getPokeTypeColor(pokeType))
+  
   //pokeBack.style.opacity = "0.7";
 
   const idItem = document.createElement('h3')
@@ -284,6 +286,7 @@ const typeSelector = document.querySelector('#type-select')
 typeSelector.addEventListener('change', (event) => {
   const usersTypeChoice = event.target.value.toLowerCase()
  if(event.target.value === 'Show all'){
+  removeChildren(pokeGrid)
   loadedPokemon.forEach((singlePokemon) => {
     populatePokeCard(singlePokemon)})
    } else{
