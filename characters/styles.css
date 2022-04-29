@@ -3,9 +3,13 @@
 }
 
 main {
+  background-image: url(/images/starsbackground.jpg);
+  background-position: center;
+  background-size: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  
 
 }
 
