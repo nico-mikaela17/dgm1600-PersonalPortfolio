@@ -21,7 +21,7 @@ function simplifiedMembers(people){
       gender: member.gender,
       party: member.party,
       imgURL: `https://www.govtrack.us/static/legislator-photos/${member.govtrack_id}-200px.jpeg`,
-      seniority: member.seniority,
+      seniority: +member.seniority,
       state: member.state,
       missedVotesPct: member.missed_votes_pct,
       loyaltyPct: member.votes_with_party_pct
@@ -53,8 +53,6 @@ function populateCongressDiv(congressMembers) {
     const memberFig = document.createElement('figure')
     const figImg = document.createElement('img')
     const figCaption = document.createElement('figcaption')
-
-    //let govtrack_id = getLastNumber(senator.id)
 
     figImg.src = member.imgURL
     figCaption.textContent = member.name
