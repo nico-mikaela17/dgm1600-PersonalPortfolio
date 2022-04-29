@@ -1,26 +1,36 @@
 import { senators } from '../data/senators.js'
 import { representatives } from '../data/representatives.js'
-import { getLastNumber, removeChildren } from '../utils/index.js'
+import { removeChildren } from '../utils/index.js'
 
 
 const allMembersOfCongress = [...senators, ...representatives] 
 
-const main = document.querySelector('main')
-const header = document.querySelector('header')
-
-const senatorsDiv = document.querySelector('.senatorsdiv')
-const repDiv = document.querySelector('.representativesdiv')
+//REL
+const navBar = document.querySelector('.navBar')
+const congressDiv = document.querySelector('.congress')
 const seniorityHeader = document.querySelector('.seniority')
 const loyaltyList = document.querySelector('.loyaltylist')
 
-const republicanSenators = senators.filter(senator => senator.party === 'R')  // elegant filter!
-const republicanRep = representatives.filter(representative => representative.party === 'R')  // elegant filter!
-const democratSenators = senators.filter(senator => senator.party === 'D')  // elegant filter!
-const democratRep = representatives.filter(representative => representative.party === 'D')  // elegant filter!
+//MAP function - filter
+function simplifiedMembers(people){
+  return people.map((member) => {
+    const middleName = member.middle_name ? ` ${member.middle_name} ` : ` `
+    return {
+      id: member.id,
+      name: `${member.first_name}${middleName}${member.last_name}`,
+      gender: member.gender,
+      party: member.party,
+      imgURL: `https://www.govtrack.us/static/legislator-photos/${member.govtrack_id}-200px.jpeg`,
+      seniority: member.seniority,
+      state: member.state,
+      missedVotesPct: member.missed_votes_pct,
+      loyaltyPct: member.votes_with_party_pct
+    }
+  })
+}
 
-
-
-function simplifiedSenators() {
+//template
+/*function simplifiedSenators() {
   return senators.map(senator => {
     const middleName = senator.middle_name ? ` ${senator.middle_name} ` : ` `
     return {
@@ -35,103 +45,82 @@ function simplifiedSenators() {
       loyaltyPct: senator.votes_with_party_pct
     }
   })
-}
+}*/
 
-function populateSenatorDiv(senatorsArray) {
-    removeChildren(main)
-  senatorsArray.forEach((senator) => {
-    const senFigure = document.createElement('figure')
+function populateCongressDiv(congressMembers) {
+    removeChildren(congressDiv)
+    congressMembers.forEach((member) => {
+    const memberFig = document.createElement('figure')
     const figImg = document.createElement('img')
     const figCaption = document.createElement('figcaption')
 
     //let govtrack_id = getLastNumber(senator.id)
 
-    figImg.src = senator.imgURL
-    figCaption.textContent = senator.name
+    figImg.src = member.imgURL
+    figCaption.textContent = member.name
 
-    senFigure.appendChild(figImg)
-    senFigure.appendChild(figCaption)
-    senatorsDiv.appendChild(senFigure)
-  })
-}
+    memberFig.appendChild(figImg)
+    memberFig.appendChild(figCaption)
+    congressDiv.appendChild(memberFig)
 
-populateSenatorDiv(senators)
-
-function simplifiedRepresentatives() {
-    return representatives.map(representative => {
-      const middleName = representative.middle_name ? ` ${representative.middle_name} ` : ` `
-      return {
-        id: representative.id,
-        name: `${representative.first_name}${middleName}${representative.last_name}`,
-        gender: representative.gender,
-        party: representative.party,
-        imgURL: `https://www.govtrack.us/static/legislator-photos/${representative.govtrack_id}-200px.jpeg`,
-        seniority: +representative.seniority,
-        state: representative.state,
-        missedVotesPct: representative.missed_votes_pct,
-        loyaltyPct: representative.votes_with_party_pct
+    if (member.party === 'R'){
+      figCaption.style.setProperty('background-color', '#b60e0e')
+     }
+     if (member.party === 'R'){
+       memberFig.style.setProperty('background-color', '#b60e0e')
       }
-    })
-  }
-
-
-  function populateRepDiv(representativesArray) {
-    removeChildren(main)
-  representativesArray.forEach((representative) => {
-    const repFigure = document.createElement('figure')
-    const figImg = document.createElement('img')
-    const figCaption = document.createElement('figcaption')
-
-    //let govtrack_id = getLastNumber(senator.id)
-
-    figImg.src = representative.imgURL
-    figCaption.textContent = representative.name
-
-    repFigure.appendChild(figImg)
-    repFigure.appendChild(figCaption)
-    repDiv.appendChild(repFigure)
+ 
+     if (member.party === 'D'){
+       figCaption.style.setProperty('background-color', '#02478E')
+     }
+ 
+     if (member.party === 'D'){
+       memberFig.style.setProperty('background-color', '#02478E')
+     }
   })
 }
-populateRepDiv(representatives)
 
-const allSenators = document.createElement('button')
-allSenators.textContent = 'All Senators'
-allSenators.addEventListener('click', function () {
-  populateSenatorDiv(senator)
-  console.log(allSenators)
+populateCongressDiv(simplifiedMembers(allMembersOfCongress))
+
+//FILTERS
+const allSenators = simplifiedMembers(senators)
+const allRepresentatives = simplifiedMembers(representatives)
+const republicanMembers = allMembersOfCongress.filter(republican => republican.party === 'R')  // elegant filter!
+const democratMembers = allMembersOfCongress.filter(democrat => democrat.party === 'D')  // elegant filter!
+
+
+//BUTTONS
+const allSenatorMembers = document.createElement('button')
+allSenatorMembers.textContent = 'All Senators'
+allSenatorMembers.addEventListener('click', function () {
+  populateCongressDiv(allSenators)
 })
+navBar.appendChild(allSenatorMembers)
 
-header.appendChild(allSenators)
-
-const allRepresentatives = document.createElement('button')
-allRepresentatives.textContent = 'All Representatives'
-allRepresentatives.addEventListener('click', function () {
-  populateRepDiv(representative)
-  console.log(allRepresentatives)
+const allRepresentativeMembers = document.createElement('button')
+allRepresentativeMembers.textContent = 'All Representatives'
+allRepresentativeMembers.addEventListener('click', function () {
+  populateCongressDiv(allRepresentatives)
 })
-
-header.appendChild(allRepresentatives)
+navBar.appendChild(allRepresentativeMembers)
 
 const allRepublicans = document.createElement('button')
 allRepublicans.textContent = 'Republicans'
-allRepublicans.addEventListener('click', () => populateSenatorDiv(republicanRep + republicanSenators))
+allRepublicans.addEventListener('click', () => populateCongressDiv(simplifiedMembers(republicanMembers)))
 
-header.appendChild(allRepublicans)
+navBar.appendChild(allRepublicans)
 
 const allDemocrats = document.createElement('button')
 allDemocrats.textContent = 'Democrats'
-allDemocrats.addEventListener('click', () => populateSenatorDiv(democratRep + democratSenators))
+allDemocrats.addEventListener('click', () => populateCongressDiv(simplifiedMembers(democratMembers)))
 
-header.appendChild(allDemocrats)
+navBar.appendChild(allDemocrats)
 
-populateSenatorDiv(simplifiedSenators())
-populateRepDiv(simplifiedRepresentatives())
+populateCongressDiv(simplifiedMembers())
 
 const mostSeniorSenator = simplifiedSenators().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator)
 const mostSeniorRep = simplifiedRepresentatives().reduce((acc, representative) => acc.seniority > representative.seniority ? acc : representative)
-
 const biggestMissedVotesPct = simplifiedSenators().reduce((acc, senator) => acc.missedVotesPct > senator.missedVotesPct ? acc : senator)
-
 const biggestVactionerList = simplifiedSenators().filter(senator => senator.missedVotesPct === biggestMissedVotesPct.missedVotesPct).map(senator => senator.name).join(' and ')
 
 seniorityHeader.textContent = `The most senior Senator is ${mostSeniorSenator.name} and most senior Representative is ${mostSeniorRep.name} and the biggest fans of vacations are ${biggestVactionerList}.`
