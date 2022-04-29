@@ -6,7 +6,7 @@ import { removeChildren } from '../utils/index.js'
 const allMembersOfCongress = [...senators, ...representatives] 
 
 //REL
-const main = document.querySelector('main')
+const factsDiv = document.querySelector('.facts')
 const navBar = document.querySelector('.navBar')
 const congressDiv = document.querySelector('.congress')
 const seniorityHeader = document.querySelector('.seniority')
@@ -20,6 +20,7 @@ function simplifiedMembers(people){
       id: member.id,
       name: `${member.first_name}${middleName}${member.last_name}`,
       gender: member.gender,
+      twitter_account: member.twitter_account,
       party: member.party,
       imgURL: `https://www.govtrack.us/static/legislator-photos/${member.govtrack_id}-200px.jpeg`,
       seniority: +member.seniority,
@@ -56,7 +57,7 @@ function populateCongressDiv(congressMembers) {
     const figCaption = document.createElement('figcaption')
 
     figImg.src = member.imgURL
-    figCaption.textContent = member.name
+    figCaption.textContent = member.name + ' @' + member.twitter_account
 
     memberFig.appendChild(figImg)
     memberFig.appendChild(figCaption)
@@ -133,29 +134,33 @@ navBar.appendChild(allIndependent)
 populateCongressDiv(simplifiedMembers())
 
 //Seniority and Loyalty
-const mostSeniorMember = simplifiedMembers().reduce((acc, representative) => acc.seniority > representative.seniority ? acc : representative)
-mostSeniorMember.textContent = `The most senior Congress Member is ${mostSeniorMember.name}`
-seniorityHeader.appendChild(mostSeniorMember)
 
-const biggestVactionerList = simplifiedMembers().filter(senator => senator.missedVotesPct === biggestMissedVotesPct.missedVotesPct).map(senator => senator.name).join(' and ')
-biggestVactionerList.textContent = `  and the biggest fans of vacations are ${biggestVactionerList}.`
-seniorityHeader.appendChild(biggestVactionerList)
+function populateFacts(allMembers){
+  removeChildren(factsDiv)
+  
+  loyaltyList = document.createElement('ul')
+  simplifiedSenators().forEach(senator => {
+    if(senator.loyaltyPct === 100) {
+      let listItem = document.createElement('li')
+      listItem.textContent = senator.name
+      loyaltyList.appendChild(listItem)
+    }
+  })
+factsDiv.appendChild(loyaltyList)
 
-const biggestMissedVotesPct = simplifiedMembers().reduce((acc, senator) => acc.missedVotesPct > senator.missedVotesPct ? acc : senator)
+const mostSeniorMember = simplifiedSenators().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator)
+
+const biggestMissedVotesPct = simplifiedSenators().reduce((acc, senator) => acc.missedVotesPct > senator.missedVotesPct ? acc : senator)
+
+const biggestVactionerList = simplifiedSenators().filter(senator => senator.missedVotesPct === biggestMissedVotesPct.missedVotesPct).map(senator => senator.name).join(' and ')
+
+seniorityHeader.textContent = `The most senior Senator is ${mostSeniorMember.name} and the biggest fans of vacations are ${biggestVactionerList}.`
 
 
-simplifiedSenators().forEach(member => {
-  if(member.loyaltyPct === 100) {
-    let listItem = document.createElement('li')
-    listItem.textContent = member.name
-    loyaltyList.appendChild(listItem)
-  }
-})
+factsDiv.appendChild(seniorityHeader)
+factsDiv.appendChild(loyaltyList)
+factsDiv.appendChild()
+
+}
 
 
-
-// TODO items to consider for your final project
-// TODO: Some sort of UI for sorting by party affiliation or by party and gender with a count
-// TODO: Much better styling of the grid of senators and their names.
-// TODO: Maybe include more data with each congress member such as links to their Twitter or Facebook pages
-// TODO: Incorporate a way to select the members of the house of representatives
