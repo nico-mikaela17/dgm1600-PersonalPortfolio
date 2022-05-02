@@ -6,15 +6,14 @@ import { removeChildren } from '../utils/index.js'
 const allMembersOfCongress = [...senators, ...representatives] 
 
 //REL
-const factsDiv = document.querySelector('.facts')
 const navBar = document.querySelector('.navBar')
 const congressDiv = document.querySelector('.congress')
 const seniorityHeader = document.querySelector('.seniority')
 const loyaltyList = document.querySelector('.loyaltylist')
 
 //MAP function - filter
-function simplifiedMembers(people){
-  return people.map((member) => {
+function simplifiedMembers(members){
+  return members.map(member => {
     const middleName = member.middle_name ? ` ${member.middle_name} ` : ` `
     return {
       id: member.id,
@@ -63,6 +62,7 @@ function populateCongressDiv(congressMembers) {
     memberFig.appendChild(figCaption)
     congressDiv.appendChild(memberFig)
 
+
     if (member.party === 'R'){
       figCaption.style.setProperty('background-color', '#b60e0e')
      }
@@ -109,7 +109,6 @@ const allRepresentativeMembers = document.createElement('button')
 allRepresentativeMembers.textContent = 'Representatives'
 allRepresentativeMembers.addEventListener('click', function () {
   populateCongressDiv(allRepresentatives)
-  console.log(allRepresentatives)
 })
 navBar.appendChild(allRepresentativeMembers)
 
@@ -131,36 +130,21 @@ allIndependent.addEventListener('click', () => populateCongressDiv(simplifiedMem
 
 navBar.appendChild(allIndependent)
 
-populateCongressDiv(simplifiedMembers())
 
 //Seniority and Loyalty
-
-function populateFacts(allMembers){
-  removeChildren(factsDiv)
   
-  loyaltyList = document.createElement('ul')
-  simplifiedSenators().forEach(senator => {
-    if(senator.loyaltyPct === 100) {
-      let listItem = document.createElement('li')
-      listItem.textContent = senator.name
-      loyaltyList.appendChild(listItem)
-    }
-  })
-factsDiv.appendChild(loyaltyList)
+const mostSeniorMember = simplifiedMembers().reduce((acc, member) => acc.seniority > member.seniority ? acc : member)
 
-const mostSeniorMember = simplifiedSenators().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator)
+const biggestMissedVotesPct = simplifiedMembers().reduce((acc, member) => acc.missedVotesPct > member.missedVotesPct ? acc : member)
 
-const biggestMissedVotesPct = simplifiedSenators().reduce((acc, senator) => acc.missedVotesPct > senator.missedVotesPct ? acc : senator)
-
-const biggestVactionerList = simplifiedSenators().filter(senator => senator.missedVotesPct === biggestMissedVotesPct.missedVotesPct).map(senator => senator.name).join(' and ')
+const biggestVactionerList = simplifiedMembers().filter(member => member.missedVotesPct === biggestMissedVotesPct.missedVotesPct).map(member => member.name).join(' and ')
 
 seniorityHeader.textContent = `The most senior Senator is ${mostSeniorMember.name} and the biggest fans of vacations are ${biggestVactionerList}.`
 
-
-factsDiv.appendChild(seniorityHeader)
-factsDiv.appendChild(loyaltyList)
-factsDiv.appendChild()
-
-}
-
-
+simplifiedMembers().forEach(member => {
+  if(member.loyaltyPct === 100) {
+    let listItem = document.createElement('li')
+    listItem.textContent = member.name
+    loyaltyList.appendChild(listItem)
+  }
+})
